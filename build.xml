@@ -1,0 +1,47 @@
+<project name="jquery.plugin" default="help" basedir=".">
+
+	<description>jquery.plugin</description>
+
+
+	<!-- set global properties for this build -->
+	<property name="source.dir" location="src"/>
+	<property name="build.dir" location="build"/>
+	<property name="log.dir" location="logs"/>
+	<property name="lib.dir" location="lib"/>
+
+	<tstamp/>
+
+	<mkdir dir="${lib.dir}"/>
+	<mkdir dir="${log.dir}"/>
+	<mkdir dir="${build.dir}"/>
+
+	<import file="ant/build-depends.xml"/>
+	<import file="ant/build-jslint.xml"/>
+
+
+	<target name="help">
+		<echo message="use 'ant clean all' to build"/>
+		<echo message="use 'ant -p' to see build targets"/>
+	</target>
+
+
+	<target name="clean">
+		<delete dir="${build.dir}"/>
+		<delete dir="${log.dir}"/>
+	</target>
+
+
+	<target name="init">
+		<mkdir dir="${lib.dir}"/>
+		<mkdir dir="${log.dir}"/>
+		<mkdir dir="${build.dir}"/>
+	</target>
+
+
+	<target name="test" description="test the plugin" depends="jslint"/>
+
+
+	<target name="all" description="ant clean all" depends="clean,init,dependencies,test"/>
+
+
+</project>

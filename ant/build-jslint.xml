@@ -1,0 +1,25 @@
+<project name="jquery.plugin.jslint" basedir="."
+ xmlns:jsl="antlib:com.googlecode.jslint4java">
+
+
+	<path id="ant.tasks.classpath">
+		<fileset dir="${lib.dir}" includes="${jslint.filename}/${jslint.filename}.jar"/>
+	</path>
+
+
+	<taskdef uri="antlib:com.googlecode.jslint4java"
+	 resource="com/googlecode/jslint4java/antlib.xml"
+	 classpathref="ant.tasks.classpath"
+	/>
+
+
+	<target name="jslint" description="quality control with jslint">
+		<jsl:jslint options="undef,white,browser,plusplus">
+			<formatter type="plain"/>
+			<formatter type="xml" destfile="${log.dir}/jslint.xml"/>
+			<fileset dir="${source.dir}" includes="**/*.js"/>
+		</jsl:jslint>
+	</target>
+
+
+</project>

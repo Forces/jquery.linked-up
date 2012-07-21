@@ -1,0 +1,32 @@
+<project name="jquery.plugin.depends" basedir=".">
+
+	<property name="jslint.filename" value="jslint4java-2.0.2"/>
+
+
+	<!-- TODO don't download files that already exist! -->
+
+
+	<target name="get-qunit" description="Get qunit files">
+		<get src="http://code.jquery.com/qunit/qunit-git.css" dest="${lib.dir}/qunit-git.css"/>
+		<get src="http://code.jquery.com/qunit/qunit-git.js" dest="${lib.dir}/qunit-git.js"/>
+	</target>
+
+
+	<target name="get-jquery" description="Get jquery from googleapis">
+		<get src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" dest="${lib.dir}/jquery-1.7.2.min.js"/>
+	</target>
+
+
+	<target name="get-jslint" description="Get jslint from googlecode">
+		<local name="jslint.zipFilename"/>
+		<property name="jslint.zipFilename" value="${jslint.filename}-dist.zip"/>
+
+		<get src="http://jslint4java.googlecode.com/files/${jslint.zipFilename}" dest="${lib.dir}"/>
+		<unzip src="${lib.dir}/${jslint.zipFilename}" dest="${lib.dir}"/>
+	</target>
+
+
+	<target name="dependencies" depends="get-qunit,get-jquery,get-jslint" description="Get all dependences"/>
+
+
+</project>
