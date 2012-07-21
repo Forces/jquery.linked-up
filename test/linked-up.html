@@ -45,37 +45,20 @@
 		strictEqual( $( '#qunit-fixture' ).length, 1, '#qunit-fixture exists' );
 		strictEqual( $( '#foo', '#qunit-fixture' ).length, 1, '#foo exists in #qunit-fixture' );
 		strictEqual( $( '#bar', '#qunit-fixture' ).length, 1, '#bar exists in #qunit-fixture' );
-		strictEqual( $( 'script[src$=jquery.linkedUp.js]' ).length, 1, 'script@src is jquery.linkedUp.js' );
+		strictEqual( $( 'script[src$="jquery.linked-up.js"]' ).length, 1, 'script@src is jquery.linked-up.js' );
 
 	});
 
 
 	module( 'chaining' );
 
-	test( 'init', 2, function() {
+	test( '.linkedUp() chained with .attr()', 2, function() {
 
-		$( '#foo, #bar' ).linkedUp({ 'foo' : 'bar' }).attr( 'title', 'foo' );
+		$( '#foo, #bar' ).linkedUp().attr( 'title', 'foo' );
 		strictEqual( $( '#foo' ).attr( 'title' ), 'foo', '#foo was chained' );
 		strictEqual( $( '#bar' ).attr( 'title' ), 'foo', '#bar was chained' );
 
 	});
-
-	test( 'get', 2, function() {
-
-		$( '#foo, #bar' ).linkedUp( 'get' ).attr( 'title', 'foo' );
-		strictEqual( $( '#foo' ).attr( 'title' ), 'foo', '#foo was chained' );
-		strictEqual( $( '#bar' ).attr( 'title' ), 'foo', '#bar was chained' );
-
-	});
-
-	test( 'set', 2, function() {
-
-		$( '#foo, #bar' ).linkedUp( 'set', { 'foo' : 'bar' }).attr( 'title', 'foo' );
-		strictEqual( $( '#foo' ).attr( 'title' ), 'foo', '#foo was chained' );
-		strictEqual( $( '#bar' ).attr( 'title' ), 'foo', '#bar was chained' );
-
-	});
-
 
 	// module( 'default behaviour' );
 
