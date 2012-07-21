@@ -7,14 +7,14 @@ Place the following code in the `<head>` of your XHTML document.
 Note: For best performance, it is recommended that you combine all JavaScript files
 below into a single minified file.
 
-```
+```html
 <script type="text/javascript" src="jquery-1.3.1.js"></script>
 <script type="text/javascript" src="jquery.linked-up.js"></script>
 ```
 
 The following markup should then be used in your `<body>` content
 
-```
+```html
 <p>
 	<a href="test">A link</a>
 	Clicking this paragraph will follow the link above.
@@ -23,7 +23,7 @@ The following markup should then be used in your `<body>` content
 
 Combined with this script (after the markup has loaded):
 
-```
+```javascript
 $( 'p' ).linkedUp();
 ```
 
