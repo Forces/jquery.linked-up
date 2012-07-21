@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+	<meta charset="UTF-8" />
+	<title>tests · jquery.linkedUp tests</title>
+
+	<link rel="stylesheet" href="../lib/qunit-git.css" />
+	<script src="../lib/qunit-git.js"></script>
+
+	<style>
+		body {
+			padding: 2em;
+			font-family: sans-serif;
+			background: #faf7f3;
+			color: #111;
+		}
+
+		#qunit-fixture {
+			position: static;
+		}
+	</style>
+</head>
+
+<body>
+
+
+	<div id="qunit"></div>
+	<div id="qunit-fixture">
+		<div id="foo">foo</div>
+		<div id="bar">bar</div>
+	</div>
+
+
+	<script src="../lib/jquery-1.7.2.min.js"></script>
+	<script src="../src/jquery.linked-up.js"></script>
+
+
+<script><!-- //
+
+
+	module( 'environment' );
+
+	test( 'fixture is correct', 4, function() {
+
+		strictEqual( $( '#qunit-fixture' ).length, 1, '#qunit-fixture exists' );
+		strictEqual( $( '#foo', '#qunit-fixture' ).length, 1, '#foo exists in #qunit-fixture' );
+		strictEqual( $( '#bar', '#qunit-fixture' ).length, 1, '#bar exists in #qunit-fixture' );
+		strictEqual( $( 'script[src$=jquery.linkedUp.js]' ).length, 1, 'script@src is jquery.linkedUp.js' );
+
+	});
+
+
+	module( 'chaining' );
+
+	test( 'init', 2, function() {
+
+		$( '#foo, #bar' ).linkedUp({ 'foo' : 'bar' }).attr( 'title', 'foo' );
+		strictEqual( $( '#foo' ).attr( 'title' ), 'foo', '#foo was chained' );
+		strictEqual( $( '#bar' ).attr( 'title' ), 'foo', '#bar was chained' );
+
+	});
+
+	test( 'get', 2, function() {
+
+		$( '#foo, #bar' ).linkedUp( 'get' ).attr( 'title', 'foo' );
+		strictEqual( $( '#foo' ).attr( 'title' ), 'foo', '#foo was chained' );
+		strictEqual( $( '#bar' ).attr( 'title' ), 'foo', '#bar was chained' );
+
+	});
+
+	test( 'set', 2, function() {
+
+		$( '#foo, #bar' ).linkedUp( 'set', { 'foo' : 'bar' }).attr( 'title', 'foo' );
+		strictEqual( $( '#foo' ).attr( 'title' ), 'foo', '#foo was chained' );
+		strictEqual( $( '#bar' ).attr( 'title' ), 'foo', '#bar was chained' );
+
+	});
+
+
+	// module( 'default behaviour' );
+
+// --></script>
+
+
+</body>
+</html>

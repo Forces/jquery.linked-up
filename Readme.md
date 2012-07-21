@@ -1,6 +1,8 @@
 # Linked up
 
 
+Linked up is a simple jQuery plugin that allows a container element to act as an extension of a link within. In other words, clicking the “linked up” element will follow the first link found inside.
+
 ## Examples
 Place the following code in the `<head>` of your XHTML document.
 
